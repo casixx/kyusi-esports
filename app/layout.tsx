@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Press_Start_2P } from "next/font/google";
+import { DotGothic16 } from "next/font/google";
+import Navbar from "./components/Navbar";
+
+
+const dotGothic16 = DotGothic16({
+  weight: '400', 
+  subsets: ['latin'],
+  variable: '--font-dot-gothic-16', 
+});
+
+const pressStart2P = Press_Start_2P({
+  weight: '400', 
+  subsets: ['latin'],
+  variable: '--font-press-start-2p',
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,8 +41,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased ${pressStart2P.variable} ${dotGothic16.variable}`} 
       >
+        <Navbar />
         {children}
       </body>
     </html>
